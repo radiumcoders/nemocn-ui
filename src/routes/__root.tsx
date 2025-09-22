@@ -11,10 +11,6 @@ import appCss from "../styles.css?url";
 import BorderPatterns from "@/components/border-patterns";
 import Navbar from "@/components/navbar";
 import Arora from "@/components/aurora";
-import { inject } from "@vercel/analytics";
-
-inject();
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -49,8 +45,8 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body>
-              <Navbar />
-              <Arora />
+        <Navbar />
+        <Arora />
         {children}
         <BorderPatterns />
         <Scripts />
