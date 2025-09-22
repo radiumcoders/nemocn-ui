@@ -11,6 +11,9 @@ import appCss from "../styles.css?url";
 import BorderPatterns from "@/components/border-patterns";
 import Navbar from "@/components/navbar";
 import Arora from "@/components/aurora";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 export const Route = createRootRoute({
   head: () => ({
