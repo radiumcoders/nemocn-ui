@@ -1,52 +1,57 @@
 // src/routes/__root.tsx
 /// <reference types="vite/client" />
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
 import {
   Outlet,
   createRootRoute,
   HeadContent,
   Scripts,
-} from '@tanstack/react-router'
-import appCss from '../styles.css?url'
-
+} from "@tanstack/react-router";
+import appCss from "../styles.css?url";
+import BorderPatterns from "@/components/border-patterns";
+import Navbar from "@/components/navbar";
+import Arora from "@/components/aurora";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       {
-        charSet: 'utf-8',
+        charSet: "utf-8",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
       },
       {
-        title: 'TanStack Start Starter',
+        title: "TanStack Start Starter",
       },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   component: RootComponent,
-})
+});
 
 function RootComponent() {
   return (
     <RootDocument>
       <Outlet />
     </RootDocument>
-  )
+  );
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html>
+    <html className="dark">
       <head>
         <HeadContent />
       </head>
       <body>
+              <Navbar />
+              <Arora />
         {children}
+        <BorderPatterns />
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
